@@ -35,7 +35,7 @@ class SortStr {
 
 Program-2
 
-***
+*
 import java.io.*;
 
 class CovidException extends Exception {
@@ -81,4 +81,4 @@ class Patient {
     }
 }
 
-***
+*
