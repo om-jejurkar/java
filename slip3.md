@@ -1,5 +1,5 @@
 Program-1
-***
+*
 import java.util.Scanner;
 
 class SortStr {
@@ -31,4 +31,54 @@ class SortStr {
         }
     }
 }
+***
+
+Program-2
+
+***
+import java.io.*;
+
+class CovidException extends Exception {
+    public CovidException() {
+        System.out.println("Patient is Covid Positive and needs to be hospitalized");
+    }
+}
+
+class Patient {
+    String name;
+    int age;
+    double level, hrct;
+
+    public Patient(String name, int age, double level, double hrct) {
+        this.name = name;
+        this.age = age;
+        this.level = level;
+        this.hrct = hrct;
+    }
+
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+
+        System.out.println("Enter name: ");
+        String name = br.readLine();
+        System.out.println("Enter the age: ");
+        int age = Integer.parseInt(br.readLine());
+        System.out.println("Oxygen level: ");
+        double level = Double.parseDouble(br.readLine());
+        System.out.println("HRCT report: ");
+        double hrct = Double.parseDouble(br.readLine());
+
+        Patient ob = new Patient(name, age, level, hrct);
+
+        try {
+            if (ob.level < 95 && ob.hrct > 10)
+                throw new CovidException();
+            else
+                System.out.println("Patient Info:\nName: " + ob.name + "\nAge: " + ob.age + "\nHRCT report: " + ob.hrct + "\nOxygen level: " + ob.level);
+        } catch (CovidException e) {
+            // Exception handled
+        }
+    }
+}
+
 ***
